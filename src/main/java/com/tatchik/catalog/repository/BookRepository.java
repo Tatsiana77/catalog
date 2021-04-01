@@ -1,15 +1,29 @@
 package com.tatchik.catalog.repository;
 
+import com.tatchik.catalog.dto.BookDto;
 import com.tatchik.catalog.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
-//    @Query("SELECT a FROM Author a left join fetch where a.id = :id ")
-//    public List<Book> getBookByAuthor(@Param());
+    @Query("SELECT b FROM Book b ")
+    public List<Book> getAllBook();
+
+    @Query("SELECT DISTINCT b FROM Book b  WHERE b.name = :name")
+    public Book  getBookByName(@Param("name") String name);
+
+
+    @Query ("SELECT DISTINCT b FROM Book  b LEFT JOIN FETCH b.author")
+    public Book getAllBookWithAuthor();
+
+    @Query("SELECT DISTINCT b FROM Book b LEFT JOIN FETCH b.publisherSet")
+    public Set<Book> getAllBookWithJoin();
+
+
 
 }

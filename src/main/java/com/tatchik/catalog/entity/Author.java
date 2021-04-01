@@ -1,6 +1,8 @@
 package com.tatchik.catalog.entity;
 
 
+import com.tatchik.catalog.dto.BookDto;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,13 +18,10 @@ public class Author {
     String name;
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
     List<Book> book;
 
-
-
     public Integer getId() {
-
         return id;
     }
 

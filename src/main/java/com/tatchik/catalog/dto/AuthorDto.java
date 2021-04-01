@@ -1,13 +1,13 @@
 package com.tatchik.catalog.dto;
 
-import com.tatchik.catalog.entity.Book;
+import com.tatchik.catalog.entity.Author;
 
 import java.util.List;
 
-public class AuthorDto {
+public class AuthorDto extends Author {
     private Integer id;
     private String name;
-    private List<Book> book;
+    private List<BookDto> bookDto;
 
     public AuthorDto() {
     }
@@ -16,28 +16,32 @@ public class AuthorDto {
         this.name = name;
     }
 
+    @Override
     public Integer getId() {
         return id;
     }
 
+    @Override
     public void setId(Integer id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    public List<Book> getBook() {
-        return book;
+    public List<BookDto> getBookDto() {
+        return bookDto;
     }
 
-    public void setBook(List<Book> book) {
-        this.book = book;
+    public void setBookDto(List<BookDto> bookDto) {
+        this.bookDto = bookDto;
     }
 
     @Override
@@ -45,7 +49,7 @@ public class AuthorDto {
         return "AuthorDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", book=" + book +
+                ", bookDto=" + bookDto +
                 '}';
     }
 }
