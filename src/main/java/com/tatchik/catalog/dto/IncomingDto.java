@@ -13,14 +13,13 @@ public class IncomingDto extends Incoming {
     private Integer count_Incom;
     private DecimalFormat price;
     private Set<SuppliersDto> suppliersDto;
-    private Set<Book> bookDto;
+    private Set<BookDto> bookDto;
 
     public IncomingDto() {
     }
 
     public IncomingDto(Integer id, Integer count_Incom, DecimalFormat price,
-                       Set<SuppliersDto> suppliersDto, Set<Book> bookDto) {
-
+                       Set<SuppliersDto> suppliersDto, Set<BookDto> bookDto) {
         this.id = id;
         this.count_Incom = count_Incom;
         this.price = price;
@@ -66,11 +65,11 @@ public class IncomingDto extends Incoming {
         this.suppliersDto = suppliersDto;
     }
 
-    public Set<Book> getBookDto() {
+    public Set<BookDto> getBookDto() {
         return bookDto;
     }
 
-    public void setBookDto(Set<Book> bookDto) {
+    public void setBookDto(Set<BookDto> bookDto) {
         this.bookDto = bookDto;
     }
 
