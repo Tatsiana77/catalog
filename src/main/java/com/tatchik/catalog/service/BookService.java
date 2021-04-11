@@ -8,13 +8,14 @@ public interface BookService {
 
     List<BookDto> getAllBook();
 
-    BookDto getAllBookWithAuthor();
+    List<BookDto> getAllBookWithJoin();
+
+    List<BookDto> getAllBookWithAuthor();
 
 
     BookDto getBookByName(String name);
 
     public void saveEntity(BookDto bookDto);
-
 
 
 }

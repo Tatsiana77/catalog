@@ -13,20 +13,20 @@ public class CustomerDto extends Customer {
     private String customer_Address;
     private String customer_Phone;
     private String customer_email;
-    private List<Orders> orders;
+    private List<OrdersDto> ordersDto;
 
     public CustomerDto() {
     }
 
     public CustomerDto(Integer id, String name, String surname, String customer_Address,
-                       String customer_Phone, String customer_email, List<Orders> orders) {
+                       String customer_Phone, String customer_email, List<OrdersDto> ordersDto) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.customer_Address = customer_Address;
         this.customer_Phone = customer_Phone;
         this.customer_email = customer_email;
-        this.orders = orders;
+        this.ordersDto = ordersDto;
     }
 
     @Override
@@ -89,14 +89,12 @@ public class CustomerDto extends Customer {
         this.customer_email = customer_email;
     }
 
-    @Override
-    public List<Orders> getOrders() {
-        return orders;
+    public List<OrdersDto> getOrdersDto() {
+        return ordersDto;
     }
 
-    @Override
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
+    public void setOrdersDto(List<OrdersDto> ordersDto) {
+        this.ordersDto = ordersDto;
     }
 
     @Override
@@ -108,7 +106,7 @@ public class CustomerDto extends Customer {
                 ", customer_Address='" + customer_Address + '\'' +
                 ", customer_Phone='" + customer_Phone + '\'' +
                 ", customer_email='" + customer_email + '\'' +
-                ", orders=" + orders +
+                ", ordersDto=" + ordersDto +
                 '}';
     }
 }

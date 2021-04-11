@@ -11,4 +11,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query("SELECT c FROM Customer c")
     public List<Customer> getAllCustomer();
+
+    @Query("SELECT DISTINCT c FROM Customer c LEFT JOIN FETCH c.orders")
+    public List<Customer> getCustomerWithOrders();
 }

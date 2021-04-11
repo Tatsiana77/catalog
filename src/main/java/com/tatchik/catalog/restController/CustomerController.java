@@ -23,4 +23,9 @@ public class CustomerController {
     public List<CustomerDto> getAllCustomer() {
         return custmerService.getAllCustomer();
     }
+
+    @GetMapping("/api/customerWithOrders")
+    public List<CustomerDto>  getCustomerWithOrders(){
+        return custmerService.getCustomerWithOrders();
+    }
 }

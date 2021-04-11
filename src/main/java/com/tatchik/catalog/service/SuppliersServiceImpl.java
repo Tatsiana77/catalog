@@ -2,10 +2,8 @@ package com.tatchik.catalog.service;
 
 
 
-import com.tatchik.catalog.dto.BookDto;
 import com.tatchik.catalog.dto.IncomingDto;
 import com.tatchik.catalog.dto.SuppliersDto;
-import com.tatchik.catalog.entity.Book;
 import com.tatchik.catalog.entity.Incoming;
 import com.tatchik.catalog.entity.Suppliers;
 import com.tatchik.catalog.repository.SuppliersRepository;
@@ -29,8 +27,8 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Override
     @Transactional
     public Set<SuppliersDto> getAllSuppliers() {
-        Set<Suppliers> suppliers = suppliersRepository.getAllSuplliers();
-        return convertFromSetEntityToDtoSet(suppliers);
+        Set<Suppliers> suppliers = suppliersRepository.getAllSuppliers();
+        return FromSuppliersSetEntityToDto(suppliers);
     }
 
     @Override
@@ -62,7 +60,6 @@ public class SuppliersServiceImpl implements SuppliersService {
             incomingDto.setId(incoming.getId());
             incomingDto.setCount_Incom(incoming.getCount_Incom());
             incomingDto.setPrice(incoming.getPrice());
-            incomingDto.setBook(new HashSet<>());
             incomingDtos.add(incomingDto);
         }
 
@@ -70,6 +67,24 @@ public class SuppliersServiceImpl implements SuppliersService {
         return suppliersDto;
     }
 
+
+    private Set<SuppliersDto> FromSuppliersSetEntityToDto(Set<Suppliers> suppliers) {
+        Set<SuppliersDto> suppliersDtos = new HashSet<>();
+        for (Suppliers supplier : suppliers) {
+            suppliersDtos.add(FromSuppliersEntityToDto(supplier));
+        }
+
+        return suppliersDtos;
+    }
+
+    private SuppliersDto FromSuppliersEntityToDto(Suppliers suppliers) {
+        SuppliersDto suppliersDto = new SuppliersDto();
+        suppliersDto.setId(suppliers.getId());
+        suppliersDto.setSuppliers_Name(suppliers.getSuppliers_Name());
+        suppliersDto.setSuppliers_Phone(suppliers.getSuppliers_Phone());
+        suppliersDto.setIncomingDto(new HashSet<>());
+        return suppliersDto;
+    }
 
 }
 

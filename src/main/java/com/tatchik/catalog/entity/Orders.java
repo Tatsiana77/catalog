@@ -3,6 +3,8 @@ package com.tatchik.catalog.entity;
 import javax.persistence.*;
 import java.util.Date;
 
+import static javax.persistence.TemporalType.TIMESTAMP;
+
 
 @Entity
 public class Orders {
@@ -15,6 +17,7 @@ public class Orders {
     private Integer count;
 
     @Column
+    @Temporal(TemporalType.DATE)
     private Date dateOfOrder;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
