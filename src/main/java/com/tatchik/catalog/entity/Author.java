@@ -1,25 +1,23 @@
 package com.tatchik.catalog.entity;
 
 
-import com.tatchik.catalog.dto.BookDto;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Author {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
     @Column
-    String name;
+    private String name;
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
-    List<Book> book;
+    private List<Book> book;
+
 
     public Integer getId() {
         return id;

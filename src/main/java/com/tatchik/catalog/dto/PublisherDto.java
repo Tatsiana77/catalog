@@ -1,9 +1,9 @@
 package com.tatchik.catalog.dto;
 
-import com.tatchik.catalog.entity.Book;
 import com.tatchik.catalog.entity.Publisher;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,22 +12,18 @@ public class PublisherDto extends Publisher {
     private String name;
     private String publisher_Address;
     private Date yearOfPub;
-    private Set<BookDto> bookDtoSet;
+    private List<BookDto> bookDtoList;
 
 
     public PublisherDto() {
     }
 
-    public PublisherDto( String name ) {
-        this.name = name;
-    }
-
-    public PublisherDto(Integer id, String name, String publisher_Address, Date yearOfPub, Set<BookDto> bookDtoSet) {
+    public PublisherDto(Integer id, String name, String publisher_Address, Date yearOfPub) {
         this.id = id;
         this.name = name;
         this.publisher_Address = publisher_Address;
         this.yearOfPub = yearOfPub;
-        this.bookDtoSet = bookDtoSet;
+
     }
 
     @Override
@@ -70,12 +66,12 @@ public class PublisherDto extends Publisher {
         this.yearOfPub = yearOfPub;
     }
 
-    public Set<BookDto> getBookDtoSet() {
-        return bookDtoSet;
+    public List<BookDto> getBookDtoList(List<BookDto> bookDtos) {
+        return bookDtoList;
     }
 
-    public void setBookDtoSet(Set<BookDto> bookDtoSet) {
-        this.bookDtoSet = bookDtoSet;
+    public void setBookDtoList(List<BookDto> bookDtoList) {
+        this.bookDtoList = bookDtoList;
     }
 
     @Override
@@ -85,24 +81,8 @@ public class PublisherDto extends Publisher {
                 ", name='" + name + '\'' +
                 ", publisher_Address='" + publisher_Address + '\'' +
                 ", yearOfPub=" + yearOfPub +
-                ", bookDtoSet=" + bookDtoSet +
+                ", bookDtoList=" + bookDtoList +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PublisherDto)) return false;
-        if (!super.equals(o)) return false;
-        PublisherDto that = (PublisherDto) o;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName())
-                && Objects.equals(getPublisher_Address(), that.getPublisher_Address())
-                && Objects.equals(getYearOfPub(), that.getYearOfPub())
-                && Objects.equals(getBookDtoSet(), that.getBookDtoSet());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getName(), getPublisher_Address(), getYearOfPub(), getBookDtoSet());
-    }
 }
+

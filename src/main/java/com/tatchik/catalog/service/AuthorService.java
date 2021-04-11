@@ -13,6 +13,7 @@ public interface AuthorService {
     AuthorDto getAuthorByName(String name);
 
     public void saveEntity(AuthorDto authorDto);
+
     public AuthorDto getAuthorById(Integer idAuthor);
 
 

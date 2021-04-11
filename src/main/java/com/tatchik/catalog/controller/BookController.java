@@ -15,13 +15,13 @@ import java.util.List;
 public class BookController {
 
 
-    @Autowired
-    private BookService bookService;
-
-    @RequestMapping("/book")
-    public String getAllBook(ModelMap modelMap) {
-        List<BookDto> books = bookService.getAllBook();
-        modelMap.addAttribute("authors", books);
-        return "books";
-    }
+//    @Autowired
+//    private BookService bookService;
+//
+//    @RequestMapping("/book")
+//    public String getAllBook(ModelMap modelMap) {
+//        List<BookDto> books = bookService.getAllBook();
+//        modelMap.addAttribute("authors", books);
+//        return "books";
+//    }
 }

@@ -1,11 +1,15 @@
 package com.tatchik.catalog.entity;
 
 
+import jdk.jfr.DataAmount;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
+
+
 
 
 @Entity
@@ -13,24 +17,20 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+   private  Integer id;
 
     @Column
-    String name;
+   private String name;
 
     @Column
-    String publisher_Address;
+   private String publisher_Address;
 
     @Column
     @Temporal(TemporalType.DATE)
-    Date yearOfPub;
+    private Date yearOfPub;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "publisher_book",
-            joinColumns = @JoinColumn(name = "publisher_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    Set<Book> book;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher", cascade = CascadeType.ALL)
+    private List<Book> books;
 
 
     public Integer getId() {
@@ -57,13 +57,9 @@ public class Publisher {
         this.publisher_Address = publisher_Address;
     }
 
-    public Set<Book> getBook() {
-        return book;
-    }
+    public List<Book> getBooks() { return books; }
 
-    public void setBook(Set<Book> book) {
-        this.book = book;
-    }
+    public void setBooks(List<Book> books) { this.books = books; }
 
     public String getPublisher_Address() {
 
@@ -89,23 +85,9 @@ public class Publisher {
                 ", name='" + name + '\'' +
                 ", publisher_Address='" + publisher_Address + '\'' +
                 ", yearOfPub=" + yearOfPub +
-                ", book=" + book +
+                ", books=" + books +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Publisher)) return false;
-        Publisher publisher = (Publisher) o;
-        return Objects.equals(getId(), publisher.getId()) && Objects.equals(getName(), publisher.getName())
-                && Objects.equals(getPublisher_Address(), publisher.getPublisher_Address())
-                && Objects.equals(getYearOfPub(), publisher.getYearOfPub())
-                && Objects.equals(getBook(), publisher.getBook());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getPublisher_Address(),getYearOfPub(), getBook());
-    }
 }

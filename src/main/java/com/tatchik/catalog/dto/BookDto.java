@@ -6,7 +6,7 @@ import com.tatchik.catalog.entity.Publisher;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
+
 
 public class BookDto extends Book {
     private Integer id;
@@ -16,11 +16,10 @@ public class BookDto extends Book {
     public BookDto() {
     }
 
-    public BookDto(String name) {
+    public BookDto(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
-
-
 
     @Override
     public Integer getId() {
@@ -49,20 +48,6 @@ public class BookDto extends Book {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BookDto)) return false;
-        BookDto bookDto = (BookDto) o;
-        return Objects.equals(getId(), bookDto.getId()) &&
-                Objects.equals(getName(), bookDto.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
     }
 
 

@@ -23,11 +23,11 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @RequestMapping("/author")
+    @RequestMapping("/authors")
     public String getAllAuthor(ModelMap modelMap) {
-        List<AuthorDto> authors = authorService.getAllAuthor();
-        modelMap.addAttribute("authors", authors);
-        return "authors";
+        List<AuthorDto> author = authorService.getAllAuthor();
+        modelMap.addAttribute("authors", author);
+        return "author";
     }
 
     @RequestMapping("/author/edit")

@@ -12,8 +12,10 @@ public class AuthorDto extends Author {
     public AuthorDto() {
     }
 
-    public AuthorDto(String name) {
+    public AuthorDto(Integer id, String name, List<BookDto> bookDto) {
+        this.id = id;
         this.name = name;
+        this.bookDto = bookDto;
     }
 
     @Override

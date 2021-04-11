@@ -28,7 +28,7 @@ create table Book
 );
 create table Customer
 (
-    id               integer not null auto_increment,
+    id               Integer not null auto_increment,
     name             varchar(255),
     surname          varchar(255),
     customer_Address varchar(255),
@@ -36,6 +36,16 @@ create table Customer
     customer_email   varchar(255),
     PRIMARY KEY (id)
 );
+
+
+create table Suppliers
+(
+    id              Integer not null auto_increment,
+    suppliers_Name  varchar(255),
+    suppliers_Phone varchar(255),
+    PRIMARY KEY (id)
+);
+
 create table Orders
 (
     id          Integer not null auto_increment,
@@ -48,13 +58,6 @@ create table Orders
     FOREIGN KEY (book_Id) references Book (id)
 );
 
-create table Suppliers
-(
-    id              Integer not null auto_increment,
-    suppliers_Name  varchar(255),
-    suppliers_Phone varchar(255),
-    PRIMARY KEY (id)
-);
 create table Incoming
 (
     id           Integer not null auto_increment,

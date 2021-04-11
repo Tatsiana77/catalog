@@ -2,18 +2,21 @@ package com.tatchik.catalog.service;
 
 import com.tatchik.catalog.dto.PublisherDto;
 
-import java.util.Set;
+import java.util.List;
 
 public interface PublisherService {
 
-    public Set<PublisherDto> getAllPublisher();
+    public List<PublisherDto> getAllPublisher();
 
     public PublisherDto getPublisherByName(String name);
 
 
-    public Set<PublisherDto> getAllPublisherWithBooks();
+    public List<PublisherDto> getAllPublisherWithBooks();
 
-    public PublisherDto getPublisherByPublisherAddress(String publisher_Address);
+    public PublisherDto  getPublisherByPublisherAddress(String publisher_Address);
 
     public void saveEntity(PublisherDto publisherDto);
+
+
+
 }

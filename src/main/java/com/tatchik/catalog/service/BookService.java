@@ -1,10 +1,8 @@
 package com.tatchik.catalog.service;
 
 import com.tatchik.catalog.dto.BookDto;
-import com.tatchik.catalog.entity.Book;
 
 import java.util.List;
-import java.util.Set;
 
 public interface BookService {
 
@@ -12,7 +10,6 @@ public interface BookService {
 
     BookDto getAllBookWithAuthor();
 
-    Set<BookDto> getAllBookWithPublisher();
 
     BookDto getBookByName(String name);
 

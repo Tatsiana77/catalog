@@ -14,13 +14,13 @@ import java.util.Set;
 @Controller
 public class PublisherController {
 
-     @Autowired
-     private PublisherService publisherService;
-
-    @RequestMapping("/publisher")
-    public String getAllPublisher(ModelMap modelMap) {
-        Set<PublisherDto> publishers = publisherService.getAllPublisher();
-        modelMap.addAttribute("publishers", publishers);
-        return "publishers";
-    }
+//     @Autowired
+//     private PublisherService publisherService;
+//
+//    @RequestMapping("/publisher")
+//    public String getAllPublisher(ModelMap modelMap) {
+//        Set<PublisherDto> publishers = publisherService.getAllPublisher();
+//        modelMap.addAttribute("publishers", publishers);
+//        return "publishers";
+//    }
 }

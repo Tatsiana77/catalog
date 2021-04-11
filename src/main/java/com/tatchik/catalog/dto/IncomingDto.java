@@ -1,98 +1,85 @@
-package com.tatchik.catalog.entity;
+package com.tatchik.catalog.dto;
 
-import javax.persistence.*;
+import com.tatchik.catalog.entity.Book;
+import com.tatchik.catalog.entity.Incoming;
+import com.tatchik.catalog.entity.Suppliers;
+
 import java.text.DecimalFormat;
 import java.util.Set;
 
-@Entity
-public class Incoming {
+public class IncomingDto extends Incoming {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-
-    @Column
     private Integer count_Incom;
-
-    @Column
     private DecimalFormat price;
-
-    @ManyToMany(mappedBy = "incoming")
     private Set<Suppliers> suppliers;
-
-
-    @ManyToMany(mappedBy = "incoming")
     private Set<Book> book;
 
+    public IncomingDto() {
+    }
 
+    public IncomingDto(Integer id, Integer count_Incom, DecimalFormat price,
+                       Set<Suppliers> suppliers, Set<Book> book) {
+        this.id = id;
+        this.count_Incom = count_Incom;
+        this.price = price;
+        this.suppliers = suppliers;
+        this.book = book;
+    }
+
+    @Override
     public Integer getId() {
         return id;
     }
 
+    @Override
     public void setId(Integer id) {
         this.id = id;
     }
 
+    @Override
     public Integer getCount_Incom() {
         return count_Incom;
     }
 
+    @Override
     public void setCount_Incom(Integer count_Incom) {
         this.count_Incom = count_Incom;
     }
 
+    @Override
     public DecimalFormat getPrice() {
         return price;
     }
 
+    @Override
     public void setPrice(DecimalFormat price) {
         this.price = price;
     }
 
+    @Override
     public Set<Suppliers> getSuppliers() {
         return suppliers;
     }
 
+    @Override
     public void setSuppliers(Set<Suppliers> suppliers) {
         this.suppliers = suppliers;
     }
 
+    @Override
     public Set<Book> getBook() {
         return book;
     }
 
+    @Override
     public void setBook(Set<Book> book) {
         this.book = book;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Incoming)) return false;
-
-        Incoming incoming = (Incoming) o;
-
-        if (!getId().equals(incoming.getId())) return false;
-        if (!getCount_Incom().equals(incoming.getCount_Incom())) return false;
-        if (!getPrice().equals(incoming.getPrice())) return false;
-        if (!getSuppliers().equals(incoming.getSuppliers())) return false;
-        return getBook().equals(incoming.getBook());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId().hashCode();
-        result = 31 * result + getCount_Incom().hashCode();
-        result = 31 * result + getPrice().hashCode();
-        result = 31 * result + getSuppliers().hashCode();
-        result = 31 * result + getBook().hashCode();
-        return result;
-    }
-
-    @Override
     public String toString() {
-        return "Incoming{" +
+        return "IncomingDto{" +
                 "id=" + id +
                 ", count_Incom=" + count_Incom +
                 ", price=" + price +
