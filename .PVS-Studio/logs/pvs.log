@@ -1,0 +1,10 @@
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:63 - ********************************
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:64 - Native library search paths: 
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:948 - C:\Users\Work\AppData\Roaming\PVS-Studio-Java\7.11.44138
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:948 - .
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:948 - C:\Users\Work\AppData\Roaming\PVS-Studio-Java\7.11.44138\..
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:948 - C:\Users\Work\AppData\Roaming\PVS-Studio-Java\7.11.44138\..\..
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:948 - C:\Users\Work\AppData\Roaming\PVS-Studio-Java\7.11.44138\..\..\build
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:66 - Additional path: native/win
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:75 - Native library found: C:\Users\Work\AppData\Roaming\PVS-Studio-Java\7.11.44138\native\win\analysis-core.dll
+2021-04-11 18:23:32 [INFO ] c.p.r.NativeLoader:76 - ********************************

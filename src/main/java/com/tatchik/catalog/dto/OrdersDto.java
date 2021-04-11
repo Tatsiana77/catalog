@@ -11,18 +11,16 @@ public class OrdersDto extends Orders {
     private Integer id;
     private Integer countOrders;
     private Date dateOfOrder;
-    private Customer customer;
-    private Book book;
+
 
     public OrdersDto() {
     }
 
-    public OrdersDto(Integer id, Integer countOrders, Date dateOfOrder, Customer customer, Book book) {
+    public OrdersDto(Integer id, Integer countOrders, Date dateOfOrder) {
         this.id = id;
         this.countOrders = countOrders;
         this.dateOfOrder = dateOfOrder;
-        this.customer = customer;
-        this.book = book;
+
     }
 
     @Override
@@ -55,25 +53,7 @@ public class OrdersDto extends Orders {
         this.dateOfOrder = dateOfOrder;
     }
 
-    @Override
-    public Customer getCustomer() {
-        return customer;
-    }
 
-    @Override
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    @Override
-    public Book getBook() {
-        return book;
-    }
-
-    @Override
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     @Override
     public String toString() {
@@ -81,8 +61,6 @@ public class OrdersDto extends Orders {
                 "id=" + id +
                 ", countOrders=" + countOrders +
                 ", dateOfOrder=" + dateOfOrder +
-                ", customer=" + customer +
-                ", book=" + book +
                 '}';
     }
 }
