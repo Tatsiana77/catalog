@@ -80,7 +80,7 @@ public class CustomerServiceImpl implements CustmerService {
         for(Orders orders: customer.getOrders() ){
             OrdersDto ordersDto = new OrdersDto();
             ordersDto.setId(orders.getId());
-            ordersDto.setCount(orders.getCount());
+            ordersDto.setCountOrders(orders.getCountOrders());
             ordersDto.setDateOfOrder(orders.getDateOfOrder());
             ordersDtos.add(ordersDto);
         }

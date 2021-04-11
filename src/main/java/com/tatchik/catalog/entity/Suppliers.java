@@ -13,10 +13,10 @@ public class Suppliers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(name="suppliers_Name")
     private String suppliers_Name;
 
-    @Column
+    @Column(name="suppliers_Phone")
     private String suppliers_Phone;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

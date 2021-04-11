@@ -10,19 +10,19 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(name="name")
     private String name;
 
-    @Column
+    @Column(name="surname")
     private String surname;
 
-    @Column
+    @Column(name="customer_Address")
     private String customer_Address;
 
-    @Column
+    @Column(name="customer_Phone")
     private String customer_Phone;
 
-    @Column
+    @Column(name="customer_email")
     private String customer_email;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)

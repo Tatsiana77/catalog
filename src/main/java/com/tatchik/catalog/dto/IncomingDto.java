@@ -12,19 +12,20 @@ public class IncomingDto extends Incoming {
     private Integer id;
     private Integer count_Incom;
     private DecimalFormat price;
-    private Set<Suppliers> suppliers;
-    private Set<Book> book;
+    private Set<SuppliersDto> suppliersDto;
+    private Set<Book> bookDto;
 
     public IncomingDto() {
     }
 
     public IncomingDto(Integer id, Integer count_Incom, DecimalFormat price,
-                       Set<Suppliers> suppliers, Set<Book> book) {
+                       Set<SuppliersDto> suppliersDto, Set<Book> bookDto) {
+
         this.id = id;
         this.count_Incom = count_Incom;
         this.price = price;
-        this.suppliers = suppliers;
-        this.book = book;
+        this.suppliersDto = suppliersDto;
+        this.bookDto = bookDto;
     }
 
     @Override
@@ -57,24 +58,48 @@ public class IncomingDto extends Incoming {
         this.price = price;
     }
 
-    @Override
-    public Set<Suppliers> getSuppliers() {
-        return suppliers;
+    public Set<SuppliersDto> getSuppliersDto() {
+        return suppliersDto;
+    }
+
+    public void setSuppliersDto(Set<SuppliersDto> suppliersDto) {
+        this.suppliersDto = suppliersDto;
+    }
+
+    public Set<Book> getBookDto() {
+        return bookDto;
+    }
+
+    public void setBookDto(Set<Book> bookDto) {
+        this.bookDto = bookDto;
     }
 
     @Override
-    public void setSuppliers(Set<Suppliers> suppliers) {
-        this.suppliers = suppliers;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof IncomingDto)) return false;
+        if (!super.equals(o)) return false;
+
+        IncomingDto that = (IncomingDto) o;
+
+        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
+        if (getCount_Incom() != null ? !getCount_Incom().equals(that.getCount_Incom()) : that.getCount_Incom() != null)
+            return false;
+        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) return false;
+        if (getSuppliersDto() != null ? !getSuppliersDto().equals(that.getSuppliersDto()) : that.getSuppliersDto() != null)
+            return false;
+        return getBookDto() != null ? getBookDto().equals(that.getBookDto()) : that.getBookDto() == null;
     }
 
     @Override
-    public Set<Book> getBook() {
-        return book;
-    }
-
-    @Override
-    public void setBook(Set<Book> book) {
-        this.book = book;
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
+        result = 31 * result + (getCount_Incom() != null ? getCount_Incom().hashCode() : 0);
+        result = 31 * result + (getPrice() != null ? getPrice().hashCode() : 0);
+        result = 31 * result + (getSuppliersDto() != null ? getSuppliersDto().hashCode() : 0);
+        result = 31 * result + (getBookDto() != null ? getBookDto().hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -83,8 +108,8 @@ public class IncomingDto extends Incoming {
                 "id=" + id +
                 ", count_Incom=" + count_Incom +
                 ", price=" + price +
-                ", suppliers=" + suppliers +
-                ", book=" + book +
+                ", suppliersDto=" + suppliersDto +
+                ", bookDto=" + bookDto +
                 '}';
     }
 }

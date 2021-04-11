@@ -32,11 +32,11 @@ insert into Suppliers(suppliers_Name, suppliers_phone) values ('ДАЛИРАма
 insert into Suppliers(suppliers_Name, suppliers_phone) values ('Букинист', '80295777337');
 
 
-insert into Orders(customer_Id, book_Id, Count, dateOfOrder ) values (1, 1, 2, '2020-12-03');
-insert into Orders(customer_Id, book_Id, Count, dateOfOrder ) values (2, 2, 1, '2020-10-25');
-insert into Orders(customer_Id, book_Id, Count, dateOfOrder ) values (3, 3, 5, '2020-11-14');
-insert into Orders(customer_Id, book_Id, Count, dateOfOrder ) values (4, 5, 1, '2020-12-15');
-insert into Orders(customer_Id, book_Id, Count, dateOfOrder ) values (5, 5, 3, '2020-10-01');
+insert into Orders(customer_Id, book_Id, countOrders , dateOfOrder ) values (1, 1, 2, '2020-12-03');
+insert into Orders(customer_Id, book_Id, countOrders , dateOfOrder ) values (2, 2, 1, '2020-10-25');
+insert into Orders(customer_Id, book_Id, countOrders , dateOfOrder ) values (3, 3, 5, '2020-11-14');
+insert into Orders(customer_Id, book_Id, countOrders , dateOfOrder ) values (4, 5, 1, '2020-12-15');
+insert into Orders(customer_Id, book_Id, countOrders , dateOfOrder ) values (5, 5, 3, '2020-10-01');
 
 
 insert into Incoming(book_Id, suppliers_Id, count_Incom, price) values (1, 1, 10, 32.09);

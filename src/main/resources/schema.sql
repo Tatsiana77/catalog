@@ -51,7 +51,7 @@ create table Orders
     id          Integer not null auto_increment,
     customer_Id Integer,
     book_Id     Integer,
-    count       Integer,
+    countOrders Integer,
     dateOfOrder DATE,
     PRIMARY KEY (id),
     FOREIGN KEY (customer_Id) references Customer (id),

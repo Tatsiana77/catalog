@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class OrdersDto extends Orders {
     private Integer id;
-    private Integer count;
+    private Integer countOrders;
     private Date dateOfOrder;
     private Customer customer;
     private Book book;
@@ -17,10 +17,9 @@ public class OrdersDto extends Orders {
     public OrdersDto() {
     }
 
-    public OrdersDto(Integer id, Integer count, Date dateOfOrder,
-                     Customer customer, Book book) {
+    public OrdersDto(Integer id, Integer countOrders, Date dateOfOrder, Customer customer, Book book) {
         this.id = id;
-        this.count = count;
+        this.countOrders = countOrders;
         this.dateOfOrder = dateOfOrder;
         this.customer = customer;
         this.book = book;
@@ -37,13 +36,13 @@ public class OrdersDto extends Orders {
     }
 
     @Override
-    public Integer getCount() {
-        return count;
+    public Integer getCountOrders() {
+        return countOrders;
     }
 
     @Override
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setCountOrders(Integer countOrders) {
+        this.countOrders = countOrders;
     }
 
     @Override
@@ -80,7 +79,7 @@ public class OrdersDto extends Orders {
     public String toString() {
         return "OrdersDto{" +
                 "id=" + id +
-                ", count=" + count +
+                ", countOrders=" + countOrders +
                 ", dateOfOrder=" + dateOfOrder +
                 ", customer=" + customer +
                 ", book=" + book +

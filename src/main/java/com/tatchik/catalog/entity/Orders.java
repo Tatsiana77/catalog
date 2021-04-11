@@ -13,10 +13,10 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private Integer count;
+    @Column(name="countOrders")
+    private Integer countOrders;
 
-    @Column
+    @Column(name="dateOfOrder")
     @Temporal(TemporalType.DATE)
     private Date dateOfOrder;
 
@@ -36,13 +36,12 @@ public class Orders {
         this.id = id;
     }
 
-
-    public Integer getCount() {
-        return count;
+    public Integer getCountOrders() {
+        return countOrders;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setCountOrders(Integer countOrders) {
+        this.countOrders = countOrders;
     }
 
     public Date getDateOfOrder() {
@@ -73,7 +72,7 @@ public class Orders {
     public String toString() {
         return "Orders{" +
                 "id=" + id +
-                ", count=" + count +
+                ", countOrders=" + countOrders +
                 ", dateOfOrder=" + dateOfOrder +
                 ", customer=" + customer +
                 ", book=" + book +

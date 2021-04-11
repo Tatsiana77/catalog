@@ -12,10 +12,10 @@ public class Incoming {
     private Integer id;
 
 
-    @Column
+    @Column(name="count_Incom")
     private Integer count_Incom;
 
-    @Column
+    @Column(name="price")
     private DecimalFormat price;
 
     @ManyToMany(mappedBy = "incoming")
