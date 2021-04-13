@@ -14,6 +14,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("SELECT b FROM Book b ")
     public List<Book> getAllBook();
 
+
     @Query("SELECT DISTINCT b FROM Book b  WHERE b.name = :name")
     public Book  getBookByName(@Param("name") String name);
 

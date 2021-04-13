@@ -1,6 +1,6 @@
 package com.tatchik.catalog.dto;
 
-import com.tatchik.catalog.entity.Incoming;
+
 import com.tatchik.catalog.entity.Suppliers;
 
 import java.util.Set;

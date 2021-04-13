@@ -24,14 +24,11 @@ public class PublisherRestController {
     }
 
     @GetMapping("api/publisherWithBook")
-    public List<PublisherDto> getAllPublisherWithBooks() {
+    public List<PublisherDto> getAllPublisherWithBook() {
         return publisherService.getAllPublisherWithBooks();
 
     }
 
-    @GetMapping("api/PublisherByWithAddress")
-    public PublisherDto getPublisherByPublisherAddress() {
-        return publisherService.getPublisherByPublisherAddress("123308, г. Москва, ул. Зорге, д.1, стр.1");
-    }
+
 
 }

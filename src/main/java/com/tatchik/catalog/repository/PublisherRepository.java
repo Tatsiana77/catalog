@@ -1,7 +1,9 @@
 package com.tatchik.catalog.repository;
 
 import com.tatchik.catalog.entity.Author;
+import com.tatchik.catalog.entity.Customer;
 import com.tatchik.catalog.entity.Publisher;
+import com.tatchik.catalog.entity.Suppliers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,13 +17,11 @@ public interface PublisherRepository extends JpaRepository<Publisher, Integer> {
     List<Publisher> getAllPublisher();
 
     @Query("SELECT  DISTINCT  p  FROM Publisher p LEFT JOIN FETCH  p.books ")
-    public List<Publisher> getAllPublisherWithJoin();
+    public List<Publisher> getAllPublisherWithBooks();
 
-    @Query("SELECT DISTINCT  p  FROM Publisher p  WHERE p.name = :name")
-    public Publisher getPublisherByName(@Param("name") String name);
+    @Query("SELECT   p FROM Publisher p  LEFT JOIN FETCH  p.books  WHERE  p.id = :id ")
+    public Publisher  getPublisherWithBookById(@Param("id") Integer id);
 
-    @Query("SELECT DISTINCT  p FROM Publisher p  WHERE  p.publisher_Address = :publisher_Address")
-    public Publisher getPublisherByPublisherAddress(@Param("publisher_Address") String publisher_Address);
 
 
 }

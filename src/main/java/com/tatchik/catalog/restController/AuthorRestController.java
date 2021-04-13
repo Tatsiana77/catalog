@@ -29,5 +29,11 @@ public class AuthorRestController {
         return authorService.getAllAuthorWithBooks();
     }
 
+    @GetMapping("api/authorByName")
+    public  AuthorDto getAuthorByName(){
+        return authorService.getAuthorByName("Федор Михайлович Достоевский");
+    }
+
+
 
 }

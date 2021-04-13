@@ -18,12 +18,12 @@ public class PublisherDto extends Publisher {
     public PublisherDto() {
     }
 
-    public PublisherDto(Integer id, String name, String publisher_Address, Date yearOfPub) {
+    public PublisherDto(Integer id, String name, String publisher_Address, Date yearOfPub, List<BookDto> bookDtoList) {
         this.id = id;
         this.name = name;
         this.publisher_Address = publisher_Address;
         this.yearOfPub = yearOfPub;
-
+        this.bookDtoList = bookDtoList;
     }
 
     @Override

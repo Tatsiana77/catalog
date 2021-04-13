@@ -37,19 +37,25 @@ public class AuthorServiceImpl implements AuthorService {
         return convertFromListEntityToListDto(authors);
     }
 
-    @Override
-    public AuthorDto getAuthorByName(String name) {
-        Author author = authorRepository.getAuthorByName(name);
-        return convertFromEntityToDto(author);
-    }
+
     @Override
     public AuthorDto getAuthorById(Integer idAuthor) {
-        return convertFromEntityToDto(authorRepository.findById(idAuthor).get());
+        return convertFromEntityAuthorToDto(authorRepository.findById(idAuthor).get());
+    }
+
+    @Override
+    public AuthorDto getAuthorByName(String name) {
+        return convertFromEntityAuthorToDto(authorRepository.getAuthorByName(name));
+    }
+
+    @Override
+    public AuthorDto getAuthorWithBookById(Integer idAuthor) {
+        return  convertFromEntityToDto(authorRepository.getAuthorWithBookById(idAuthor));
     }
 
     @Override
     public void saveEntity(AuthorDto authorDto) {
-        Author author = convertFromDtoToEntity(authorDto);
+        Author author = convertFromAuthorDtoToEntity(authorDto);
         authorRepository.save(author);
     }
 
@@ -100,7 +106,7 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDto;
     }
 
-    private Author convertFromDtoToEntity(AuthorDto authorDto) {
+    private Author convertFromAuthorDtoToEntity(AuthorDto authorDto) {
         Author author = new Author();
         if (authorDto.getId() != null) {
             author.setId(authorDto.getId());

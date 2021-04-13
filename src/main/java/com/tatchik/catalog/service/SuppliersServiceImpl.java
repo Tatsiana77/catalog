@@ -1,7 +1,6 @@
 package com.tatchik.catalog.service;
 
 
-
 import com.tatchik.catalog.dto.IncomingDto;
 import com.tatchik.catalog.dto.SuppliersDto;
 import com.tatchik.catalog.entity.Incoming;
@@ -32,11 +31,22 @@ public class SuppliersServiceImpl implements SuppliersService {
     }
 
     @Override
-    @Transactional
     public Set<SuppliersDto> getSuppliersWithJoin() {
         Set<Suppliers> suppliers = suppliersRepository.getSuppliersWithJoin();
         return convertFromSetEntityToDtoSet(suppliers);
     }
+
+    @Override
+    public void saveEntity(SuppliersDto suppliersDto) {
+        Suppliers suppliers = convertFromSuppliersDtoToEntity(suppliersDto);
+        suppliersRepository.save(suppliers);
+    }
+
+    @Override
+    public SuppliersDto getSuppliersWithIncomingById(Integer idSuppliers) {
+        return convertFromEntityToDto( suppliersRepository.getSuppliersWithIncomingById(idSuppliers));
+    }
+
 
     private Set<SuppliersDto> convertFromSetEntityToDtoSet(Set<Suppliers> suppliers) {
         Set<SuppliersDto> suppliersDtos = new HashSet<>();
@@ -55,7 +65,7 @@ public class SuppliersServiceImpl implements SuppliersService {
 
         Set<IncomingDto> incomingDtos = new HashSet<>();
 
-        for(Incoming incoming : suppliers.getIncoming()){
+        for (Incoming incoming : suppliers.getIncoming()) {
             IncomingDto incomingDto = new IncomingDto();
             incomingDto.setId(incoming.getId());
             incomingDto.setCount_Incom(incoming.getCount_Incom());
@@ -63,7 +73,7 @@ public class SuppliersServiceImpl implements SuppliersService {
             incomingDtos.add(incomingDto);
         }
 
-            suppliersDto.setIncomingDto(incomingDtos);
+        suppliersDto.setIncomingDto(incomingDtos);
         return suppliersDto;
     }
 
@@ -85,6 +95,18 @@ public class SuppliersServiceImpl implements SuppliersService {
         suppliersDto.setIncomingDto(new HashSet<>());
         return suppliersDto;
     }
+
+    private Suppliers convertFromSuppliersDtoToEntity(SuppliersDto suppliersDto) {
+        Suppliers suppliers = new Suppliers();
+        if (suppliersDto.getId() != null) {
+            suppliers.setId(suppliersDto.getId());
+        }
+        suppliers.setSuppliers_Name(suppliersDto.getSuppliers_Name());
+        suppliers.setSuppliers_Phone(suppliersDto.getSuppliers_Phone());
+        suppliers.setIncoming(new HashSet<>());
+        return suppliers;
+    }
+
 
 }
 

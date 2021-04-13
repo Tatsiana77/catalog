@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-public class SuppliersController {
+public class SuppliersRestController {
 
     private SuppliersService suppliersService;
 
     @Autowired
-    public SuppliersController(SuppliersService suppliersService) {
+    public SuppliersRestController(SuppliersService suppliersService) {
         this.suppliersService = suppliersService;
     }
 

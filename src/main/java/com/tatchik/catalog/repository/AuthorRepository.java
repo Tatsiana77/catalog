@@ -1,11 +1,9 @@
 package com.tatchik.catalog.repository;
 
 import com.tatchik.catalog.entity.Author;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -21,6 +19,8 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
     @Query("SELECT DISTINCT a FROM Author a WHERE a.name = :name")
     public Author getAuthorByName(@Param("name") String name);
 
+    @Query("SELECT a FROM Author a LEFT JOIN FETCH  a.book  WHERE  a.id = :id ")
+    public Author getAuthorWithBookById(@Param("id") Integer id);
 
 }
 

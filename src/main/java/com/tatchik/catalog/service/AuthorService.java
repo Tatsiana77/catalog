@@ -10,11 +10,13 @@ public interface AuthorService {
 
     public List<AuthorDto> getAllAuthorWithBooks();
 
-    AuthorDto getAuthorByName(String name);
-
     public void saveEntity(AuthorDto authorDto);
 
     public AuthorDto getAuthorById(Integer idAuthor);
+
+    public AuthorDto getAuthorByName(String name);
+
+    public AuthorDto getAuthorWithBookById(Integer idAuthor);
 
 
 }

@@ -62,15 +62,27 @@ public class Suppliers {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Suppliers)) return false;
+
         Suppliers suppliers = (Suppliers) o;
-        return Objects.equals(getId(), suppliers.getId()) && Objects.equals(getSuppliers_Name(), suppliers.getSuppliers_Name())
-                && Objects.equals(getSuppliers_Phone(), suppliers.getSuppliers_Phone())
-                && Objects.equals(getIncoming(), suppliers.getIncoming());
+
+        if (getId() != null ? !getId().equals(suppliers.getId()) : suppliers.getId() != null) return false;
+        if (getSuppliers_Name() != null ? !getSuppliers_Name().equals(suppliers.getSuppliers_Name()) : suppliers.getSuppliers_Name() != null)
+            return false;
+        if (getSuppliers_Phone() != null ? !getSuppliers_Phone().equals(suppliers.getSuppliers_Phone()) : suppliers.getSuppliers_Phone() != null)
+            return false;
+        if (getIncoming() != null ? !getIncoming().equals(suppliers.getIncoming()) : suppliers.getIncoming() != null)
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getSuppliers_Name(), getSuppliers_Phone(), getIncoming());
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getSuppliers_Name() != null ? getSuppliers_Name().hashCode() : 0);
+        result = 31 * result + (getSuppliers_Phone() != null ? getSuppliers_Phone().hashCode() : 0);
+        result = 31 * result + (getIncoming() != null ? getIncoming().hashCode() : 0);
+        return result;
     }
 
     @Override

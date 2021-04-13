@@ -2,6 +2,7 @@ package com.tatchik.catalog.controller;
 
 import com.tatchik.catalog.dto.AuthorDto;
 import com.tatchik.catalog.dto.BookDto;
+import com.tatchik.catalog.dto.CustomerDto;
 import com.tatchik.catalog.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,16 @@ public class AuthorController {
         return "author";
     }
 
+    @RequestMapping("/authors/books")
+    public String getAllBook(ModelMap modelMap, @RequestParam Integer id) {
+        AuthorDto authorDto = authorService.getAuthorWithBookById(id);
+        modelMap.addAttribute("authors", authorDto);
+        return "book";
+    }
+
     @RequestMapping("/author/edit")
     public String editAuthor(ModelMap modelMap, @RequestParam Integer id) {
-        AuthorDto authorDto = new AuthorDto();
+        AuthorDto authorDto = authorService.getAuthorById(id);
         modelMap.addAttribute("author", authorDto);
         return "editAuthor";
     }

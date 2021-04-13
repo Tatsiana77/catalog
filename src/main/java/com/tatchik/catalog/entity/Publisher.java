@@ -26,7 +26,6 @@ public class Publisher {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher", cascade = CascadeType.ALL)
     private List<Book> books;
 
-
     public Integer getId() {
         return id;
     }
@@ -43,24 +42,7 @@ public class Publisher {
         this.name = name;
     }
 
-    public String getPublisherAddress() {
-        return publisher_Address;
-    }
-
-    public void setPublisherAddress(String publisherAddress) {
-        this.publisher_Address = publisher_Address;
-    }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
     public String getPublisher_Address() {
-
         return publisher_Address;
     }
 
@@ -72,8 +54,16 @@ public class Publisher {
         return yearOfPub;
     }
 
-    public void setYearOfPub(Date yearOdPub) {
-        this.yearOfPub = yearOdPub;
+    public void setYearOfPub(Date yearOfPub) {
+        this.yearOfPub = yearOfPub;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override
@@ -86,6 +76,4 @@ public class Publisher {
                 ", books=" + books +
                 '}';
     }
-
-
 }
