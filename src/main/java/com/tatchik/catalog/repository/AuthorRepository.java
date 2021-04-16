@@ -16,7 +16,7 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
     @Query("SELECT DISTINCT a FROM Author a LEFT JOIN FETCH a.book ")
     public List<Author> getAllAuthorWithJoin();
 
-    @Query("SELECT DISTINCT a FROM Author a WHERE a.name = :name")
+    @Query("SELECT DISTINCT a FROM Author a WHERE LOWER(a.name) = LOWER(:name)")
     public Author getAuthorByName(@Param("name") String name);
 
     @Query("SELECT a FROM Author a LEFT JOIN FETCH  a.book  WHERE  a.id = :id ")

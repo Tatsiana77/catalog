@@ -1,9 +1,8 @@
 package com.tatchik.catalog.dto;
 
 import com.tatchik.catalog.entity.Book;
-import com.tatchik.catalog.entity.Publisher;
+import com.tatchik.catalog.entity.Incoming;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -12,21 +11,17 @@ import java.util.Set;
 public class BookDto extends Book {
     private Integer id;
     private String name;
-    private Set<BookDto> bookDto;
-
+    private Set<IncomingDto> incomingDto;
+    private List<OrdersDto> ordersDto;
 
     public BookDto() {
     }
 
-    public BookDto(Integer id, String name, Set<BookDto> bookDto) {
+    public BookDto(Integer id, String name, Set<IncomingDto> incomingDto, List<OrdersDto> ordersDto) {
         this.id = id;
         this.name = name;
-        this.bookDto = bookDto;
-    }
-
-    public BookDto(Integer id, String name) {
-        this.id = id;
-        this.name = name;
+        this.incomingDto = incomingDto;
+        this.ordersDto = ordersDto;
     }
 
     @Override
@@ -49,12 +44,20 @@ public class BookDto extends Book {
         this.name = name;
     }
 
-    public Set<BookDto> getBookDto() {
-        return bookDto;
+    public Set<IncomingDto> getIncomingDto() {
+        return incomingDto;
     }
 
-    public void setBookDto(Set<BookDto> bookDto) {
-        this.bookDto = bookDto;
+    public void setIncomingDto(Set<IncomingDto> incomingDto) {
+        this.incomingDto = incomingDto;
+    }
+
+    public List<OrdersDto> getOrdersDto() {
+        return ordersDto;
+    }
+
+    public void setOrdersDto(List<OrdersDto> ordersDto) {
+        this.ordersDto = ordersDto;
     }
 
     @Override
@@ -62,13 +65,24 @@ public class BookDto extends Book {
         if (this == o) return true;
         if (!(o instanceof BookDto)) return false;
         if (!super.equals(o)) return false;
-        BookDto bookDto1 = (BookDto) o;
-        return Objects.equals(getId(), bookDto1.getId()) && Objects.equals(getName(), bookDto1.getName()) && Objects.equals(getBookDto(), bookDto1.getBookDto());
+
+        BookDto bookDto = (BookDto) o;
+
+        if (getId() != null ? !getId().equals(bookDto.getId()) : bookDto.getId() != null) return false;
+        if (getName() != null ? !getName().equals(bookDto.getName()) : bookDto.getName() != null) return false;
+        if (getIncomingDto() != null ? !getIncomingDto().equals(bookDto.getIncomingDto()) : bookDto.getIncomingDto() != null)
+            return false;
+        return getOrdersDto() != null ? getOrdersDto().equals(bookDto.getOrdersDto()) : bookDto.getOrdersDto() == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getName(), getBookDto());
+        int result = super.hashCode();
+        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getIncomingDto() != null ? getIncomingDto().hashCode() : 0);
+        result = 31 * result + (getOrdersDto() != null ? getOrdersDto().hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -76,7 +90,8 @@ public class BookDto extends Book {
         return "BookDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", bookDto=" + bookDto +
+                ", incomingDto=" + incomingDto +
+                ", ordersDto=" + ordersDto +
                 '}';
     }
 }

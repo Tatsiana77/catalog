@@ -1,6 +1,7 @@
 package com.tatchik.catalog.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Customer {
     private String customer_email;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Orders> orders;
+    private List<Orders> orders = new ArrayList<>();
 
 
     public Integer getId() {

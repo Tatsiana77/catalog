@@ -1,10 +1,10 @@
 package com.tatchik.catalog.restController;
 
 import com.tatchik.catalog.dto.AuthorDto;
+import com.tatchik.catalog.entity.Author;
 import com.tatchik.catalog.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,11 +29,27 @@ public class AuthorRestController {
         return authorService.getAllAuthorWithBooks();
     }
 
-    @GetMapping("api/authorByName")
-    public  AuthorDto getAuthorByName(){
-        return authorService.getAuthorByName("Федор Михайлович Достоевский");
+
+    @GetMapping("api/author/{idAuthor}")
+    public AuthorDto getAuthorById(@PathVariable("idAuthor") Integer id){
+        return  authorService.getAuthorById(id);
     }
 
+    @GetMapping("api/author/name")
+    public AuthorDto getAuthorByName(@RequestParam String name){
+        return authorService.getAuthorByName(name);
+    }
+
+    @PostMapping("/api/author")
+    public void saveAuthor(@RequestBody AuthorDto authorDto){
+        authorService.saveEntity(authorDto);
+    }
+
+    @DeleteMapping("api/author")
+    public void deleteAuthorById(@PathVariable("idAuthor") Integer id){
+         authorService.deleteById(id);
+
+    }
 
 
 }

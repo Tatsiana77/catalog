@@ -10,6 +10,8 @@ public interface BookService {
 
     List<BookDto> getAllBookWithJoin();
 
+    List<BookDto> getAllBookWithOrders();
+
     BookDto getBookByName(String name);
 
     public void saveEntity(BookDto bookDto);

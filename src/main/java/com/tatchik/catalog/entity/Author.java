@@ -2,6 +2,7 @@ package com.tatchik.catalog.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class Author {
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
-    private List<Book> book;
+    private List<Book> book = new ArrayList<>();
 
 
     public Integer getId() {

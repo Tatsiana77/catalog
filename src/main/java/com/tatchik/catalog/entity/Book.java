@@ -2,6 +2,7 @@ package com.tatchik.catalog.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -28,7 +29,7 @@ public class Book {
     private Publisher publisher;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Orders> order;
+    private List<Orders> order = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="book_incoming",

@@ -2,6 +2,7 @@ package com.tatchik.catalog.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Publisher {
     private Date yearOfPub;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher", cascade = CascadeType.ALL)
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
 
     public Integer getId() {
         return id;

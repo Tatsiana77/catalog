@@ -18,5 +18,5 @@ public interface AuthorService {
 
     public AuthorDto getAuthorWithBookById(Integer idAuthor);
 
-
+    public void deleteById(Integer id);
 }

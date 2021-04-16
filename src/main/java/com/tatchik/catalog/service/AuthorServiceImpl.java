@@ -50,7 +50,12 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public AuthorDto getAuthorWithBookById(Integer idAuthor) {
-        return  convertFromEntityToDto(authorRepository.getAuthorWithBookById(idAuthor));
+        return convertFromEntityToDto(authorRepository.getAuthorWithBookById(idAuthor));
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        authorRepository.deleteById(id);
     }
 
     @Override
@@ -68,6 +73,7 @@ public class AuthorServiceImpl implements AuthorService {
 
         return authorDtos;
     }
+
     private AuthorDto convertFromEntityAuthorToDto(Author author) {
         AuthorDto authorDto = new AuthorDto();
         authorDto.setId(author.getId());
@@ -75,7 +81,6 @@ public class AuthorServiceImpl implements AuthorService {
         authorDto.setBookDto(new ArrayList<>());
         return authorDto;
     }
-
 
 
     private List<AuthorDto> convertFromListEntityToListDto(List<Author> author) {
@@ -112,9 +117,27 @@ public class AuthorServiceImpl implements AuthorService {
             author.setId(authorDto.getId());
         }
         author.setName(authorDto.getName());
-        author.setBook(new ArrayList<>());
+        List<Book> books = new ArrayList<>();
+        for (BookDto bookdto : authorDto.getBookDto()) {
+            books.add(convertFromBookDtoToBookEntity(bookdto, author));
+
+
+        }
+        author.setBook(books);
         return author;
     }
+
+    private Book convertFromBookDtoToBookEntity(BookDto bookDto, Author author) {
+        Book book = new Book();
+        if (bookDto.getId() != null) {
+            book.setId(bookDto.getId());
+        }
+
+        book.setAuthor(author);
+        book.setName(bookDto.getName());
+        return book;
+    }
+
 
 }
 
