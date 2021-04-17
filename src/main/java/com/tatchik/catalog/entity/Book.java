@@ -2,10 +2,7 @@ package com.tatchik.catalog.entity;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 
 @Entity
@@ -35,7 +32,7 @@ public class Book {
     @JoinTable(name="book_incoming",
     joinColumns = @JoinColumn(name="book_id"),
     inverseJoinColumns = @JoinColumn(name="incoming_id"))
-    private Set<Incoming> incoming;
+    private Set<Incoming> incoming = new HashSet<>();
 
 
     public Integer getId() {

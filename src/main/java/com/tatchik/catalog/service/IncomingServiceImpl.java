@@ -30,7 +30,7 @@ public class IncomingServiceImpl implements IncomingService {
 
     @Override
     public Set<IncomingDto> getAllIncoming() {
-        return null;
+        return  null;
     }
 
     private Set<IncomingDto> convertFromIncomingListEntityToDtoList(Set<Incoming> incoming) {

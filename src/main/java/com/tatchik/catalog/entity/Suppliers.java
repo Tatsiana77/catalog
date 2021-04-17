@@ -3,6 +3,7 @@ package com.tatchik.catalog.entity;
 import com.tatchik.catalog.dto.IncomingDto;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class Suppliers {
     @JoinTable(name = "suppliers_incoming",
             joinColumns = @JoinColumn(name = "suppliers_id"),
             inverseJoinColumns = @JoinColumn(name = "incoming_id"))
-    private Set<Incoming> incoming;
+    private Set<Incoming> incoming = new HashSet<>();
 
 
     public Integer getId() {
