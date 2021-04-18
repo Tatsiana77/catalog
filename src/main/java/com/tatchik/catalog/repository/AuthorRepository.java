@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     @Query("SELECT a FROM Author  a")
@@ -24,6 +23,7 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     @Query("SELECT a FROM Author a LEFT JOIN FETCH  a.book  WHERE  a.id = :id ")
     public Author getAuthorWithBookById(@Param("id") Integer id);
+
 
 }
 
